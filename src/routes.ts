@@ -19,13 +19,15 @@ routes.post('/', (request: Request, response: Response) => {
 })
 
 routes.put('/:id', (request: Request, response: Response) => {
+  // Atualização em massa (vários dados)
+
   const { id } = request.params
 
-  return response.json({ message: `Item id:${id} atualizado` })
+  return response.json({ message: `Item ID:${id} atualizado` })
 })
 
 routes.patch('/:id', (request: Request, response: Response) => {
-
+  // Atualização pontual (único dado)
   const { id } = request.params
   const { user } = request.query
   const { name } = request.body
@@ -35,14 +37,17 @@ routes.patch('/:id', (request: Request, response: Response) => {
   console.log('name', name)
   console.log('')
 
-  return response.json({ message: `Item id:${id} atualizado com nome ${name}` })
+  return response.json({ 
+    message: `Item id:${id} atualizado com nome ${name}`,
+    user 
+  })
 })
 
 routes.delete('/:id', (request: Request, response: Response) => {
   const { id } = request.params
-  console.log(id)
+  console.log(`Delete no banco de dados com ID:${id}`)
   
-  return response.json({ message: `Item id:${id} deletado` })
+  return response.status(204).send()
 })
 
 
