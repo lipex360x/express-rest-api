@@ -20,7 +20,6 @@ routes.post('/', (request: Request, response: Response) => {
 
 routes.put('/:id', (request: Request, response: Response) => {
   // Atualização em massa (vários dados)
-
   const { id } = request.params
 
   return response.json({ message: `Item ID:${id} atualizado` })
@@ -49,7 +48,5 @@ routes.delete('/:id', (request: Request, response: Response) => {
   
   return response.status(204).send()
 })
-
-
 
 export default routes
