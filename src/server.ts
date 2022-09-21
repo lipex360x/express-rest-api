@@ -1,5 +1,5 @@
 import app from './app'
 
 app.listen(3333, () => {
-  console.log('server started\n')
+  console.log('API REST started\n')
 })

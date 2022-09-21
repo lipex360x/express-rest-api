@@ -9,28 +9,19 @@ routes.get('/', (request: Request, response: Response) => {
 routes.post('/', (request: Request, response: Response) => {
   const { email, password } = request.body
 
-  console.log(email, password)
-  
-  let status = 'não logado'
+  let status = `usuário ${email} não logado`
   
   if(password === '1234') {
-    status = 'logado'
+    status = `usuário ${email} logado`
   }
 
   return response.json({ status })
 })
 
 routes.put('/:id', (request: Request, response: Response) => {
-
   const { id } = request.params
-  const { user } = request.query
-  const { name } = request.body
 
-  console.log(id)
-  console.log(user)
-  console.log(name)
-
-  response.json({ id })
+  return response.json({ message: `Item id:${id} atualizado` })
 })
 
 routes.patch('/:id', (request: Request, response: Response) => {
@@ -39,18 +30,19 @@ routes.patch('/:id', (request: Request, response: Response) => {
   const { user } = request.query
   const { name } = request.body
 
-  console.log(id)
-  console.log(user)
-  console.log(name)
+  console.log('id:', id)
+  console.log('user:', user)
+  console.log('name', name)
+  console.log('')
 
-  response.json({ id })
+  return response.json({ message: `Item id:${id} atualizado com nome ${name}` })
 })
 
 routes.delete('/:id', (request: Request, response: Response) => {
   const { id } = request.params
   console.log(id)
   
-  return response.json({ message: 'hello world'})
+  return response.json({ message: `Item id:${id} deletado` })
 })
 
 
