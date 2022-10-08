@@ -3,15 +3,15 @@ import { Request, Response, Router } from 'express'
 const routes = Router()
 
 routes.get('/', (request: Request, response: Response) => {
-  return response.json({ message: 'hello world'})
+  return response.json({ message: 'hello world' })
 })
 
 routes.post('/', (request: Request, response: Response) => {
   const { email, password } = request.body
 
   let status = `usuário ${email} não logado`
-  
-  if(password === '1234') {
+
+  if (password === '1234') {
     status = `usuário ${email} logado`
   }
 
@@ -36,16 +36,16 @@ routes.patch('/:id', (request: Request, response: Response) => {
   console.log('name', name)
   console.log('')
 
-  return response.json({ 
+  return response.json({
     message: `Item id:${id} atualizado com nome ${name}`,
-    user 
+    user,
   })
 })
 
 routes.delete('/:id', (request: Request, response: Response) => {
   const { id } = request.params
   console.log(`Delete no banco de dados com ID:${id}`)
-  
+
   return response.status(204).send()
 })
 

@@ -1,0 +1,37 @@
+{
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+
+  "plugins": ["eslint-plugin-import-helpers"],
+
+  "extends": [
+    "standard-with-typescript",
+    "plugin:prettier/recommended"
+  ],
+
+  "rules": {
+    "@typescript-eslint/strict-boolean-expressions": "off",
+    "@typescript-eslint/restrict-template-expressions": "off",
+
+    "prettier/prettier": ["error", {
+      "printWidth": 100,
+      "tabWidth": 2,
+      "singleQuote": true,
+      "trailingComma": "all",
+      "arrowParens": "always",
+      "semi": false
+    }],
+
+    "import-helpers/order-imports": ["error", {
+      "newlinesBetween": "always",
+      "groups": [
+        "absolute",
+        "module",
+        "/^@/",
+        "index"
+      ],
+      "alphabetize": { "order": "asc", "ignoreCase": true }
+    }]
+  }
+}
