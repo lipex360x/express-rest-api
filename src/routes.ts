@@ -49,4 +49,4 @@ routes.delete('/:id', (request: Request, response: Response) => {
   return response.status(204).send()
 })
 
-export default routes
+export { routes }
