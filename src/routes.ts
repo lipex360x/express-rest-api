@@ -34,7 +34,8 @@ routes.patch('/:id', (request: Request, response: Response) => {
   console.log('id:', id)
   console.log('user:', user)
   console.log('name', name)
-  console.log('')
+  
+  console.log(request.headers)
 
   return response.json({
     message: `Item id:${id} atualizado com nome ${name}`,
